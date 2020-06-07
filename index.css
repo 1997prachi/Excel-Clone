@@ -1,0 +1,20 @@
+html,
+body {
+    margin: 1px;
+    padding: 1px;
+    /* padding-left: 20px;
+    padding-top: 10px; */
+}
+
+table,
+td {
+    border: 1px solid cyan;
+    border-collapse: collapse;
+    margin: 1px;
+    padding: 1px;
+}
+
+table>td>input {
+    border: 0px;
+    width: 10px !important;
+}

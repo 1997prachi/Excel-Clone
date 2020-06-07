@@ -1,0 +1,53 @@
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <title>
+        <%= pageName %>
+    </title>
+</head>
+
+<body>
+    <!-- <h1 ><%= pageHeader %>  -->
+    </h1>
+    <table>
+        <% for(let i=0;i<rows;i++) { %>
+            <tr>
+                <% for(let j=0;j<cols;j++) { %>
+
+                    <% if(i==0 ) { %>
+
+                        <% if(j==0) { %>
+                            <th>
+
+                            </th>
+                            <% } else { %>
+                                <th>
+                                    <span><%= String.fromCharCode('A'.charCodeAt(0)+j-1) %></span>
+                                </th>
+                                <% } %>
+                                    <% } else if(j==0) {%>
+                                        <th>
+                                            <span><%= i %></span>
+                                        </th>
+                                        <% } else { %>
+
+
+                                            <td>
+                                                <input type="text" placeholder=<%=i %>,
+                                                <%=j %>
+
+
+                                                    <!-- [ <%=i %> ,
+                                                <%= j %>] -->
+                                            </td>
+                                            <% } %>
+                                                <% } %>
+
+            </tr>
+            <% } %>
+    </table>
+
+</body>
+
+</html>
