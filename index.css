@@ -1,20 +1,66 @@
-html,
-body {
-    margin: 1px;
-    padding: 1px;
-    /* padding-left: 20px;
+    html,
+    body {
+        margin: 0px;
+        padding: 0px;
+        /* padding-left: 20px;
     padding-top: 10px; */
-}
-
-table,
-td {
-    border: 1px solid cyan;
-    border-collapse: collapse;
-    margin: 1px;
-    padding: 1px;
-}
-
-table>td>input {
-    border: 0px;
-    width: 10px !important;
-}
+        /* border: 6px solid red; */
+    }
+    
+    .container {
+        display: flex;
+        flex-direction: column;
+        /* background-color: purple; */
+    }
+    
+    .menu-bar {
+        display: flex;
+        flex-direction: row;
+        height: 20px;
+        background-color: green;
+    }
+    
+    .menu-bar>div {
+        flex: 95%;
+        padding: 4px;
+        font-size: 12px;
+        cursor: pointer;
+        height: 20px;
+    }
+    
+    .menu-bar>div :hover {
+        border-top: 1px solid blue;
+    }
+    
+    .formula-bar {
+        display: flex;
+        flex-direction: row;
+        height: 20px;
+        background-color: yellowgreen;
+    }
+    
+    .content-container {
+        display: flex;
+        flex-direction: row;
+        height: 580px;
+        background-color: blueviolet;
+    }
+    
+    .sheets-bar {
+        display: flex;
+        flex-direction: row;
+        height: 100px;
+        background-color: orangered;
+    }
+    /* table,
+    td {
+        border: 1px solid cyan;
+        border-collapse: collapse;
+        margin: 1px;
+        padding: 1px;
+    }
+    
+    table>td>input {
+        border: 0px;
+        width: 10px !important;
+    } */

@@ -18,6 +18,7 @@ app.whenReady().then(function() {
         show: false
     });
     win.loadFile('index.ejs').then(function() {
+        win.removeMenu();
         win.maximize();
         win.show();
 

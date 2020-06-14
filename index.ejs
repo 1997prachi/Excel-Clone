@@ -2,14 +2,34 @@
 
 <head>
     <link rel="stylesheet" type="text/css" href="index.css">
-    <title>
+    <!-- <title>
         <%= pageName %>
-    </title>
+    </title> -->
 </head>
 
 <body>
     <!-- <h1 ><%= pageHeader %>  -->
-    </h1>
+
+    <div class="container">
+        <div class="menu-bar">
+
+            <div>File</div>
+            <div>Home</div>
+            <div>data</div>
+            <div>View</div>
+            <div>Help</div>
+        </div>
+        <div class="formula-bar">
+            <input type="text" id="cell"></input>
+            <div id="seprator">:</div>
+            <input type="text" id="formula"></input>
+
+        </div>
+
+        <div class="content-container"></div>
+        <div class="sheets-bar"></div>
+    </div>
+    <!-- </h1>
     <table>
         <% for(let i=0;i<rows;i++) { %>
             <tr>
@@ -38,15 +58,15 @@
                                                 <%=j %>
 
 
-                                                    <!-- [ <%=i %> ,
-                                                <%= j %>] -->
-                                            </td>
-                                            <% } %>
-                                                <% } %>
+                                                         [ <%=i %> , -->
+    <!-- <%= j %>] -->
+    <!-- </td>
+    <% } %>
+        <% } %>
 
             </tr>
             <% } %>
-    </table>
+                </table> -->
 
 </body>
 
