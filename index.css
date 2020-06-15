@@ -1,86 +1,134 @@
-    html,
-    body {
-        margin: 0px;
-        padding: 0px;
-        /* padding-left: 20px;
-    padding-top: 10px; */
-        /* border: 6px solid red; */
-    }
-    
-    .container {
-        display: flex;
-        flex-direction: column;
-        /* background-color: purple; */
-    }
+html,body{
+    margin: 0px;
+    padding: 0px;
+}
 
-    .menu-bar {
-        display: flex;
-        flex-direction: row;
-        height: 20px;
-        background-color: green;
-    }
+#container{
+    display:flex;
+    flex-direction: column;
+    background-color: red;
+}
+#menu-bar{
+    display:flex;
+    flex-direction: row;
+    background-color: white;
+    height:20px;
+
+}
+#menu-bar>div{
+    margin:2px 5px 0px 5px;
+    font-size: 12px;
+    cursor: pointer;
+    height:20px;
+}
+#menu-bar>div:hover{
+    border-top: 1px solid blue;
+    transform: scale(1.1);
+    font-weight: bold;
+}
+#formula-bar{
+    display:flex;
+    flex-direction: row;
+    background-color: white;
+    height:20px;
+}
+#formula-bar> #cell{
+    flex:3%;
+}
+#formula-bar> #seperator{
+    flex:1%;
+    text-align: center;
+}
+#formula-bar> #formula{
+    flex:96;
+}
+
+
+#sheets-bar{
+    display:flex;
+    flex-direction: row;
+    background-color: white;
+    height:22px;
+}
+#sheets-bar>div{
+    font-size: 12px;
+    padding: 2px;
+    border-right: 1px solid gray;
+    cursor: pointer;
+    border-left :1px solid gray;
+
+}
+#sheets-bar>div:hover{
+    border-top:1px solid blue;
+    /* transform: scale(1.1); */
+    font-weight: bold;
+}
+#sheets-bar #add{
+    width:20px;
+    font-size: 12px;
+    text-align: center;
+    cursor: pointer;
+}
+
+#content-container{
+    position: relative;
+    height:623px;
+    width:100%;
+    overflow:auto;
+}
+
+#tl-cell{
+    position: absolute;
+    top:0px;
+    left:0px;
+    height:25px;
+    width:25px;
+    background-color: chocolate;
+}
+
+#first-row{
+    position: absolute;
+    top:0px;
+    left:25px;
+    height:25px;
+    background-color: blue;
+    display: flex;
+    flex-direction: row;
+}
+.cell{
     
-    .menu-bar>div {
-        flex: 95%;
-        padding: 4px;
-        font-size: 12px;
-        cursor: pointer;
-        height: 20px;
-    }
+    width: 70px;
+    box-sizing: border-box;
+    text-align: center;
     
-    .menu-bar>div :hover {
-        border-top: 1px solid blue;
-    }
-    
-    .formula-bar {
-        display: flex;
-        flex-direction: row;
-        height: 20px;
-        background-color: yellowgreen;
-    }
-    
-    .content-container {
-        display: flex;
-        flex-direction: row;
-        height: 580px;
-        background-color: blueviolet;
-    }
-    
-    #tl-cell {
-        position: absolute;
-        top: 0px;
-        left: 0px;
-        height: 25px;
-        width: 25px;
-        background-color: red;
-    }
-    
-    #first-row {
-        position: absolute;
-        top: 0px;
-        left: 0px;
-        height: 25px;
-        width: 25px;
-        background-color: blue;
-        display: flex;
-        flex-direction: column;
-    }
-    
-    .sheets-bar {
-        display: flex;
-        flex-direction: row;
-        height: 100px;
-        background-color: orangered;
-    }
-    /* table,
-    td {
-        border: 1px solid cyan;
-        border-collapse: collapse;
-        margin: 1px;
-        padding: 1px;
-    }
-    
-    table>td>input {
-        border: 0px;
-        width: 10px !important;
-    } */
+    border: 1px solid black;
+}
+#first-col{
+    position: absolute;
+    top:25px;
+    left:0px;
+    width:25px;
+    background-color: blue;
+    display: flex;
+    flex-direction: column;
+}
+#first-col .cell{
+    width:25;
+}
+
+
+#grid{
+
+    top:25;
+    left:25;
+    display: flex;
+    flex-direction: column;
+    background-color: darkgreen;
+    position: absolute;
+}
+
+
+.row{
+    display:flex;
+    flex-direction: row;
+}
