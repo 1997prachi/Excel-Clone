@@ -12,7 +12,7 @@
         flex-direction: column;
         /* background-color: purple; */
     }
-    
+
     .menu-bar {
         display: flex;
         flex-direction: row;
@@ -44,6 +44,26 @@
         flex-direction: row;
         height: 580px;
         background-color: blueviolet;
+    }
+    
+    #tl-cell {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        height: 25px;
+        width: 25px;
+        background-color: red;
+    }
+    
+    #first-row {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        height: 25px;
+        width: 25px;
+        background-color: blue;
+        display: flex;
+        flex-direction: column;
     }
     
     .sheets-bar {

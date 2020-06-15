@@ -1,73 +1,55 @@
 <html>
 
 <head>
-    <link rel="stylesheet" type="text/css" href="index.css">
-    <!-- <title>
-        <%= pageName %>
-    </title> -->
+    <title><%= pageName %></title>
+    <link rel="stylesheet" type="text/css" href="index1.css" />
 </head>
 
 <body>
-    <!-- <h1 ><%= pageHeader %>  -->
-
-    <div class="container">
-        <div class="menu-bar">
-
+    <link href="./index.css">
+    <div id="container">
+        <div id="menu-bar">
             <div>File</div>
             <div>Home</div>
-            <div>data</div>
             <div>View</div>
+            <div>Data</div>
             <div>Help</div>
         </div>
-        <div class="formula-bar">
-            <input type="text" id="cell"></input>
-            <div id="seprator">:</div>
-            <input type="text" id="formula"></input>
-
+        <div id="formula-bar">
+        <input type ="text" id ="cell">
+        <div id= "seperator" >:</div>
+        <input type ="text" id ="formula">
         </div>
+        <div id="content-container">
+            <div id ="tl-cell"></div>
+            <div id ="first-row">
+                <% for(let j =0;j<cols;j++) { %>
+                        <div class="cell"><%= String.fromCharCode('A'.charCodeAt(0) + j ) %></div>
+                    
+                    <% } %>
+                </div>
+            <div id ="first-col">
+                <% for(let i =0;i<rows;i++) { %>
+                    <div class="cell"><%= i +1%></div>
+                <% } %>
 
-        <div class="content-container"></div>
-        <div class="sheets-bar"></div>
+            </div>
+            <div id="grid">
+                <% for(let i =0;i<rows;i++) { %>
+                    <div class ="row">
+                        <% for(let j =0;j<cols;j++) { %>
+                            <div class ="cell"><%=String.fromCharCode('A'.charCodeAt(0) + j )%><%=i%></div>
+                        <% } %>
+                    </div>
+
+                <% } %>
+            </div>
+        </div>
+        <div id="sheets-bar">
+        <div>Sheet 1</div>
+        <div id="add">+</div>
+        </div>
     </div>
-    <!-- </h1>
-    <table>
-        <% for(let i=0;i<rows;i++) { %>
-            <tr>
-                <% for(let j=0;j<cols;j++) { %>
-
-                    <% if(i==0 ) { %>
-
-                        <% if(j==0) { %>
-                            <th>
-
-                            </th>
-                            <% } else { %>
-                                <th>
-                                    <span><%= String.fromCharCode('A'.charCodeAt(0)+j-1) %></span>
-                                </th>
-                                <% } %>
-                                    <% } else if(j==0) {%>
-                                        <th>
-                                            <span><%= i %></span>
-                                        </th>
-                                        <% } else { %>
-
-
-                                            <td>
-                                                <input type="text" placeholder=<%=i %>,
-                                                <%=j %>
-
-
-                                                         [ <%=i %> , -->
-    <!-- <%= j %>] -->
-    <!-- </td>
-    <% } %>
-        <% } %>
-
-            </tr>
-            <% } %>
-                </table> -->
-
 </body>
 
 </html>
