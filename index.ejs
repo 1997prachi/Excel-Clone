@@ -14,6 +14,9 @@
             <div>View</div>
             <div>Data</div>
             <div>Help</div>
+            <div id="new">New</div>
+            <div id="open">Open</div>
+            <div id="save">Save</div>
         </div>
         <div id="formula-bar">
         <input type ="text" id ="cell">
@@ -38,14 +41,14 @@
                 <% for(let i =0;i<rows;i++) { %>
                     <div class ="row">
                         <% for(let j =0;j<cols;j++) { %>
-                            <div class ="cell"><%=String.fromCharCode('A'.charCodeAt(0) + j )%><%=i%></div>
+                            <div class ="cell" contenteditable="true"></div>
                         <% } %>
                     </div>
 
                 <% } %>
             </div>
         </div>
-        <div id="sheets-bar">
+        <div id="sheets">
         <div>Sheet 1</div>
         <div id="add">+</div>
         </div>

@@ -63,6 +63,8 @@ title{
     font-weight: bold;
 }
 #sheets> #add{
+    display: flex;
+    flex-direction: row;
     width: 20px;
     text-align: center;
 }
@@ -71,7 +73,7 @@ title{
     position: relative;
     overflow: auto;
 }
-#t1-cell{
+#tl-cell{
     position: absolute;
     top: 0px;
     left: 0px;
