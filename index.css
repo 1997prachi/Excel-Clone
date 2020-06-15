@@ -83,7 +83,7 @@ html,body{
     left:0px;
     height:25px;
     width:25px;
-    background-color: chocolate;
+    background-color: light grey;
 }
 
 #first-row{
@@ -91,7 +91,7 @@ html,body{
     top:0px;
     left:25px;
     height:25px;
-    background-color: blue;
+    background-color:light grey;
     display: flex;
     flex-direction: row;
 }
@@ -101,19 +101,21 @@ html,body{
     box-sizing: border-box;
     text-align: center;
     
-    border: 1px solid black;
+    border: 0.5px solid light grey;
 }
 #first-col{
     position: absolute;
     top:25px;
     left:0px;
     width:25px;
-    background-color: blue;
+    padding-left: 0px;
+    background-color:light grey;
     display: flex;
     flex-direction: column;
 }
 #first-col .cell{
     width:25;
+    padding-left: 0px;
 }
 
 

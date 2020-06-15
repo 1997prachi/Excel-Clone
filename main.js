@@ -11,11 +11,15 @@ ejse.data({
     cols: 100,
 })
 
-app.whenReady().then(function() {
-    let win = new BrowserWindow({
+//app.whenReady().then(function()
+app.whenReady().then(function createWindow(){
+    const win = new BrowserWindow({
         width: 800,
         height: 600,
-        show: false
+        show: false,
+        webPreferences: {
+            nodeIntegration: true
+        }
     });
     win.loadFile('index.ejs').then(function() {
         win.removeMenu();
