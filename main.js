@@ -11,8 +11,7 @@ ejse.data({
     cols: 100,
 })
 
-//app.whenReady().then(function()
-app.whenReady().then(function createWindow(){
+ app.whenReady().then(function(){
     const win = new BrowserWindow({
         width: 800,
         height: 600,
@@ -25,6 +24,7 @@ app.whenReady().then(function createWindow(){
         win.removeMenu();
         win.maximize();
         win.show();
+        win.webContents.openDevTools();
 
 
     });

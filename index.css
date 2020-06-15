@@ -1,136 +1,131 @@
-html,body{
+html body{
     margin: 0px;
     padding: 0px;
-}
 
+}
+title{
+    background-color: green;
+}
 #container{
-    display:flex;
+    display: flex;
     flex-direction: column;
-    background-color: red;
+    border: solid 1px brown;
 }
 #menu-bar{
-    display:flex;
-    flex-direction: row;
-    background-color: white;
-    height:20px;
-
-}
-#menu-bar>div{
-    margin:2px 5px 0px 5px;
-    font-size: 12px;
-    cursor: pointer;
-    height:20px;
-}
-#menu-bar>div:hover{
-    border-top: 1px solid blue;
-    transform: scale(1.1);
-    font-weight: bold;
-}
-#formula-bar{
-    display:flex;
-    flex-direction: row;
-    background-color: white;
-    height:20px;
-}
-#formula-bar> #cell{
-    flex:3%;
-}
-#formula-bar> #seperator{
-    flex:1%;
-    text-align: center;
-}
-#formula-bar> #formula{
-    flex:96;
-}
-
-
-#sheets-bar{
-    display:flex;
-    flex-direction: row;
-    background-color: white;
-    height:22px;
-}
-#sheets-bar>div{
-    font-size: 12px;
-    padding: 2px;
-    border-right: 1px solid gray;
-    cursor: pointer;
-    border-left :1px solid gray;
-
-}
-#sheets-bar>div:hover{
-    border-top:1px solid blue;
-    /* transform: scale(1.1); */
-    font-weight: bold;
-}
-#sheets-bar #add{
-    width:20px;
-    font-size: 12px;
-    text-align: center;
-    cursor: pointer;
-}
-
-#content-container{
-    position: relative;
-    height:623px;
-    width:100%;
-    overflow:auto;
-}
-
-#tl-cell{
-    position: absolute;
-    top:0px;
-    left:0px;
-    height:25px;
-    width:25px;
-    background-color: light grey;
-}
-
-#first-row{
-    position: absolute;
-    top:0px;
-    left:25px;
-    height:25px;
-    background-color:light grey;
     display: flex;
     flex-direction: row;
+    background-color: green;
+    height: 2.5vh;
+}
+#menu-bar div{
+    margin: 2px 5px 0px 5px;
+    font-size: 12px;
+    cursor: pointer;
+}
+#menu-bar div:hover{
+    border-bottom: 1px solid red;
+}
+#formula-bar{
+    display: flex;
+    flex-direction: row;
+    height: 2.5vh;
+}
+#formula-bar>#cell{
+    flex:3%;
+}
+#formula-bar>#separartor{
+    flex:1%;
+}
+#formula-bar>#formula{
+    flex:96%;
+}
+/* #content-container{
+    display: flex;
+    flex-direction: row;
+    background-color: orange;
+    height: 90vh;
+} */
+#sheets{
+    display: flex;
+    flex-direction: row;
+    height: 2.5vh;
+}
+#sheets> div{
+    padding: 2px;
+    border-right: 1px solid grey;
+    border-left: 1px solid grey;
+    font-size: 12px;
+    cursor: pointer;
+    text-align: center;
+}
+#sheets> div:hover{
+    border-bottom: 2px solid blue;
+    font-weight: bold;
+}
+#sheets> #add{
+    width: 20px;
+    text-align: center;
+}
+#content-container{
+    height: calc(100vh - 100px);
+    position: relative;
+    overflow: auto;
+}
+#t1-cell{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 25px;
+    width: 25px;
+    background-color: lightgrey;
+    z-index:3;
+}
+#first-row{
+    position: absolute;
+    top: 0px;
+    left: 25px;
+    height: 25px;
+    background-color: lightgrey;
+    display: flex;
+    flex-direction: row;
+     z-index:1;
 }
 .cell{
-    
-    width: 70px;
-    box-sizing: border-box;
+    width: 60px;
+    border: 1px solid black;
     text-align: center;
-    
-    border: 0.5px solid light grey;
+    box-sizing: border-box;
+    color: green;
 }
 #first-col{
     position: absolute;
-    top:25px;
-    left:0px;
-    width:25px;
-    padding-left: 0px;
-    background-color:light grey;
+    top: 25px;
+    width: 25px;
+    background-color: lightgrey;
     display: flex;
     flex-direction: column;
+     z-index:2;
 }
 #first-col .cell{
-    width:25;
-    padding-left: 0px;
+    width: 25px;
+    height: 25px;
+    border: 1px solid black;
+    text-align: center;
+    box-sizing: border-box;
 }
-
-
 #grid{
-
-    top:25;
-    left:25;
+    position: absolute;
+    top: 25px;
+    left: 25px;
     display: flex;
     flex-direction: column;
-    background-color: darkgreen;
-    position: absolute;
 }
-
-
+#grid .cell{
+    height: 25px;
+    width: 60px;
+}
 .row{
-    display:flex;
+    display: flex;
     flex-direction: row;
 }
+
