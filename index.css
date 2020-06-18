@@ -65,6 +65,19 @@ title{
     background-color: teal;
     color: white;
 }
+.cell{
+    width:70px;
+    border:0.5px solid lightgray;
+    text-align: center;
+    box-sizing:border-box;
+    cursor: cell;
+    font-size:11px;
+    line-height:25px;
+    border-radius:2px;
+}
+.cell.selected{
+    border: 0.5px solid red;
+}
 #formula-bar{
     display: flex;
     flex-direction: row;

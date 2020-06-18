@@ -7,7 +7,7 @@ $(document).ready(function () {
     let rows = [];
     function getDefaultCell() {
         let cell = {
-            val: 'hello',
+            val: '',
             fontfanily: 'Geogria',
             fontSize: 10,
             bold: false,
@@ -23,15 +23,15 @@ $(document).ready(function () {
     function prepareCellDiv(cdiv, cobj) {
         $(cdiv).html(cobj.val);
         $(cdiv).css('font-family', cobj.fontFamily);
-        $(cdiv).css('font-size', cobj.fontSize+'px');
+        $(cdiv).css('font-size', cobj.fontSize + 'px');
         $(cdiv).css('font-weight', cobj.bold ? 'bold' : 'normal');
         $(cdiv).css('font-style', cobj.italic ? 'italic' : 'normal');
-        $(cdiv).css('text-decoration', cobj.underline?'underline':'none');
+        $(cdiv).css('text-decoration', cobj.underline ? 'underline' : 'none');
         $(cdiv).css('background-color', cobj.bgColor);
         $(cdiv).css('color', cobj.textColor);
         $(cdiv).css('text-align', cobj.halign);
 
-        
+
     }
     $('#content-container').on('scroll', function () {
         $('#tl-cell').css('top', $('#content-container').scrollTop());
@@ -52,6 +52,7 @@ $(document).ready(function () {
         })
 
         $('#home-menu').click();
+        $('#grid .cell:first').click();
     })
     $("#open").on('click', async function () {
         let dobj = await dialog.showOpenDialog();
@@ -102,7 +103,7 @@ $(document).ready(function () {
         $('#' + menuContainerId).css('display', 'flex');
     })
 
-    $('#home-menu').click();
+    // $('#home-menu').click();
     $('#bold').on('click', function () {
         $(this).toggleClass('selected');
 
@@ -115,5 +116,22 @@ $(document).ready(function () {
         $(this).toggleClass('selected');
 
     })
+    $('#grid .cell').on('click', function (e) {
+        if (e.ctrlKey) {
+            $(this).addClass('selected');
+        }
+        else {
 
+            $('#grid .cell').removeClass('selected');
+            $(this).addClass('selected');
+        }
+    })
+    $('#grid .cell').on('keypress', function (e) {
+        let rid = parseInt($(this).attr('rid'));
+        let cid = parseInt($(this).attr('cid'));
+        let cobj = rows[rid][cid];
+        cobj.val = $(this).html();
+    })
+
+    $('#new').click();
 })
