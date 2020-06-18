@@ -4,6 +4,35 @@ const dialog = electron.dialog;
 const fsp = require('fs').promises;
 
 $(document).ready(function () {
+    let rows = [];
+    function getDefaultCell() {
+        let cell = {
+            val: 'hello',
+            fontfanily: 'Geogria',
+            fontSize: 10,
+            bold: false,
+            italic: false,
+            underline: false,
+            bgColor: '#FFFFFF',
+            textColor: '#000000',
+            valign: 'middle',
+            halign: 'left',
+        };
+        return cell;
+    }
+    function prepareCellDiv(cdiv, cobj) {
+        $(cdiv).html(cobj.val);
+        $(cdiv).css('font-family', cobj.fontFamily);
+        $(cdiv).css('font-size', cobj.fontSize+'px');
+        $(cdiv).css('font-weight', cobj.bold ? 'bold' : 'normal');
+        $(cdiv).css('font-style', cobj.italic ? 'italic' : 'normal');
+        $(cdiv).css('text-decoration', cobj.underline?'underline':'none');
+        $(cdiv).css('background-color', cobj.bgColor);
+        $(cdiv).css('color', cobj.textColor);
+        $(cdiv).css('text-align', cobj.halign);
+
+        
+    }
     $('#content-container').on('scroll', function () {
         $('#tl-cell').css('top', $('#content-container').scrollTop());
         $('#tl-cell').css('left', $('#content-container').scrollLeft());
@@ -13,12 +42,16 @@ $(document).ready(function () {
 
     $("#new").on('click', function () {
         $('#grid').find('.row').each(function () {
+            let cells = [];
             $(this).find('.cell').each(function () {
-                $(this).html('');
-
+                let cell = getDefaultCell();
+                cells.push(cell);
+                prepareCellDiv(this, cell);
             })
+            rows.push(cells);
         })
 
+        $('#home-menu').click();
     })
     $("#open").on('click', async function () {
         let dobj = await dialog.showOpenDialog();
@@ -45,27 +78,20 @@ $(document).ready(function () {
 
     })
     $("#save").on('click', async function () {
-        let rows = [];
-        $('#grid').find('.row').each(function () {
-            let cells = [];
-            $(this).find('.cell').each(function () {
-                cells.push($(this).html());
 
-            })
-            rows.push(cells);
-        })
+        // $('#grid').find('.row').each(function () {
+        //     let cells = [];
+        //     $(this).find('.cell').each(function () {
+        //         cells.push($(this).html());
+
+        //     })
+        //     rows.push(cells);
+        // })
         let dobj = await dialog.showSaveDialog();
-        if (dobj.cancelled) {
-            return;
-        }
-        else if (dobj.filePath === '') {
-            alert("Please Select a file");
-            return;
-        }
-        else {
-            await fsp.writeFile(dobj.filePath, JSON.stringify(rows))
-            alert("Saved Succesfully");
-        }
+        await fsp.writeFile(dobj.filePath, JSON.stringify(rows))
+        alert("Saved Succesfully");
+        $('#home-menu').click();
+
     })
     $('#menu-bar > div').on('click', function () {
         $('#menu-bar > div').removeClass('selected');
