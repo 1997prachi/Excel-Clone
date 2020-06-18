@@ -76,6 +76,18 @@ $(document).ready(function () {
         $('#' + menuContainerId).css('display', 'flex');
     })
 
-    $('#home-menu-container').click();
+    $('#home-menu').click();
+    $('#bold').on('click', function () {
+        $(this).toggleClass('selected');
+
+    })
+    $('#italic').on('click', function () {
+        $(this).toggleClass('selected');
+
+    })
+    $('#underline').on('click', function () {
+        $(this).toggleClass('selected');
+
+    })
 
 })

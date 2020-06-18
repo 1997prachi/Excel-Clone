@@ -52,6 +52,19 @@ title{
     flex-direction: row;
     margin:2px;
 }
+#font-family{
+    width:60px;
+    font-size:9px;
+}
+#font-size{
+    width:60px;
+    font-size:9px;
+}
+
+#bold.selected, #italic.selected,#underline.selected{
+    background-color: teal;
+    color: white;
+}
 #formula-bar{
     display: flex;
     flex-direction: row;
