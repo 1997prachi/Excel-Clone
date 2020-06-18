@@ -67,7 +67,15 @@ $(document).ready(function () {
             alert("Saved Succesfully");
         }
     })
+    $('#menu-bar > div').on('click', function () {
+        $('#menu-bar > div').removeClass('selected');
+        $(this).addClass('selected');
 
+        let menuContainerId = $(this).attr('data-content');
+        $("#menu-content-container > div").css('display', 'none');
+        $('#' + menuContainerId).css('display', 'flex');
+    })
 
+    $('#home-menu-container').click();
 
 })

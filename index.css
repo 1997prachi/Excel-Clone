@@ -3,6 +3,10 @@ html body{
     padding: 0px;
 
 }
+*{
+    box-sizing: border-box;
+    outline: none;
+}
 title{
     background-color: green;
 }
@@ -22,8 +26,31 @@ title{
     font-size: 12px;
     cursor: pointer;
 }
-#menu-bar div:hover{
+#menu-bar div:hover,#menu-bar>div.selected{
     border-bottom: 1px solid red;
+
+}
+#menu-content-container{
+    display:flex;
+    flex-direction: row;
+    height:60px;
+}
+.menu-container{
+    display:flex;
+    flex-direction: row;;
+}
+.menu-group{
+    display:flex;
+    flex-direction: column;
+    border-right: 0.5px solid lightgray;
+    border-radius: 2px;
+    padding:5px;
+
+}
+.menu-row{
+    display:flex;
+    flex-direction: row;
+    margin:2px;
 }
 #formula-bar{
     display: flex;
@@ -48,6 +75,7 @@ title{
 #sheets{
     display: flex;
     flex-direction: row;
+   /* // padding: 1px; */
     height: 2.5vh;
 }
 #sheets> div{
@@ -69,7 +97,7 @@ title{
     text-align: center;
 }
 #content-container{
-    height: calc(100vh - 100px);
+    height: calc(100vh - 120px);
     position: relative;
     overflow: auto;
 }
@@ -98,6 +126,7 @@ title{
     text-align: center;
     box-sizing: border-box;
     color: green;
+    background-color: lightgray;
 }
 #first-col{
     position: absolute;

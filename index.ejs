@@ -9,14 +9,39 @@
     <link href="./index.css">
     <div id="container">
         <div id="menu-bar">
-            <div>File</div>
-            <div>Home</div>
-            <div>View</div>
-            <div>Data</div>
-            <div>Help</div>
-            <div id="new">New</div>
+            <div id="file-menu" data-content="file-menu-container">FILE
+            
+
+            </div>
+            <div id="home-menu" data-content="home-menu-container">Home</div>
+            <!-- <div>View</div> -->
+            <div id="data-menu" data-content="data-menu-container">Data</div>
+            <!-- <div>Help</div>
+             -->
+        </div>
+        <div id="menu-content-container">
+            <div class="menu-container" id="file-menu-container">
+                <div id="new">New</div>
             <div id="open">Open</div>
             <div id="save">Save</div>
+
+            </div>
+            <div class="menu-container" id="home-menu-container">
+                <div class="menu-group" id="font-menu-container">
+                    <div class="menu-row">1.1
+
+                    </div>
+                     <div class="menu-row">1.2</div>
+
+                </div>
+
+            </div>
+            <div class="menu-group" id="alignment-menu-container">
+                <div class="menu-bar">abc</div>
+                <div class="menu-bar">def</div>
+            </div>
+            <div class="menu-container" id="data-menu-container">data</div>
+
         </div>
         <div id="formula-bar">
         <input type ="text" id ="cell">
