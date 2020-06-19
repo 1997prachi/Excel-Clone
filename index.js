@@ -8,7 +8,7 @@ $(document).ready(function () {
     function getDefaultCell() {
         let cell = {
             val: '',
-            fontfanily: 'Geogria',
+            fontFamily: 'Georgia',
             fontSize: 10,
             bold: false,
             italic: false,
@@ -102,20 +102,99 @@ $(document).ready(function () {
         $("#menu-content-container > div").css('display', 'none');
         $('#' + menuContainerId).css('display', 'flex');
     })
+    $('#font-family').on('change', function () {
+        let fontFamily = $(this).val();
+        $('#grid .cell.selected').each(function () {
+            $(this).css('font-family', fontFamily);
+            let rid = parseInt($(this).attr('rid'));
+            let cid = parseInt($(this).attr('cid'));
+            let cobj = rows[rid][cid];
+            cobj.fontFamily = fontFamily;
+        })
+    })
+    $('#font-size').on('change', function () {
+        let fontSize = $(this).val();
+        $('#grid .cell.selected').each(function () {
+            $(this).css('font-size', fontSize + 'px');
+            let rid = parseInt($(this).attr('rid'));
+            let cid = parseInt($(this).attr('cid'));
+            let cobj = rows[rid][cid];
+            cobj.fontSize = fontSize;
+        })
+    })
+
 
     // $('#home-menu').click();
     $('#bold').on('click', function () {
         $(this).toggleClass('selected');
-
+        let bold = $(this).hasClass('selected');
+        $('#grid .cell.selected').each(function () {
+            $(this).css('font-weight', bold ? 'bold' : 'normal');
+            let rid = parseInt($(this).attr('rid'));
+            let cid = parseInt($(this).attr('cid'));
+            let cobj = rows[rid][cid];
+            cobj.bold = bold;
+        })
     })
     $('#italic').on('click', function () {
         $(this).toggleClass('selected');
+        let italic = $(this).hasClass('selected');
+        $('#grid .cell.selected').each(function () {
+            $(this).css('font-style', italic ? 'italic' : 'normal');
+            let rid = parseInt($(this).attr('rid'));
+            let cid = parseInt($(this).attr('cid'));
+            let cobj = rows[rid][cid];
+            cobj.italic = italic;
+        })
 
     })
     $('#underline').on('click', function () {
         $(this).toggleClass('selected');
+        let underline = $(this).hasClass('selected');
+        $('#grid .cell.selected').each(function () {
+            $(this).css('text-decoration', underline ? 'underline' : 'none');
+            let rid = parseInt($(this).attr('rid'));
+            let cid = parseInt($(this).attr('cid'));
+            let cobj = rows[rid][cid];
+            cobj.underline = underline;
+        })
 
     })
+    $('#bg-color').on('change', function () {
+        let bgColor = $(this).val();
+        $('#grid .cell.selected').each(function () {
+            $(this).css('background-color', bgColor);
+            let rid = parseInt($(this).attr('rid'));
+            let cid = parseInt($(this).attr('cid'));
+            let cobj = rows[rid][cid];
+            cobj.bgColor = bgColor;
+        })
+    })
+    $('#text-color').on('change', function () {
+        let bgColor = $(this).val();
+        $('#grid .cell.selected').each(function () {
+            $(this).css('color', textColor);
+            let rid = parseInt($(this).attr('rid'));
+            let cid = parseInt($(this).attr('cid'));
+            let cobj = rows[rid][cid];
+            cobj.textColor = textColor;
+        })
+    })
+
+    $('.halign').on('click', function () {
+        $('.halign').removeClass('selected');
+        $(this).addClass('selected');
+        let halign = $(this).attr('prop-val');
+        $('#grid .cell.selected').each(function () {
+            $(this).css('text-align', halign);
+            let rid = parseInt($(this).attr('rid'));
+            let cid = parseInt($(this).attr('cid'));
+            let cobj = rows[rid][cid];
+            cobj.halign = halign;
+        })
+
+    })
+
     $('#grid .cell').on('click', function (e) {
         if (e.ctrlKey) {
             $(this).addClass('selected');
@@ -124,6 +203,15 @@ $(document).ready(function () {
 
             $('#grid .cell').removeClass('selected');
             $(this).addClass('selected');
+        }
+        let rid = parseInt($(this).attr('rid'));
+        let cid = parseInt($(this).attr('cid'));
+        let cobj = rows[rid][cid];
+
+        $('#font-family').val(cobj.fontFamily);
+        $('#font-size').val(cobj.fontSize);
+        if (cobj.bold) {
+            
         }
     })
     $('#grid .cell').on('keypress', function (e) {
