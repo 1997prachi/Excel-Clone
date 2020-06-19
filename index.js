@@ -58,7 +58,7 @@ $(document).ready(function () {
     $("#open").on('click', async function () {
 
         let dobj = await dialog.showOpenDialog();
-        let data = await fs.readFile(dobj.filePaths[0])
+        let data = await fsp.readFile(dobj.filePaths[0])
         rows = JSON.parse(data);
 
         let i = 0;
