@@ -193,9 +193,9 @@ $(document).ready(function () {
         })
     })
     $('#text-color').on('change', function () {
-        let bgColor = $(this).val();
+        let textColor = $(this).val();
         $('#grid .cell.selected').each(function () {
-            $(this).css('color', textColor);
+            $(this).css('color',textColor);
             let rid = parseInt($(this).attr('rid'));
             let cid = parseInt($(this).attr('cid'));
             let cobj = rows[rid][cid];
