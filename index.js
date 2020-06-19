@@ -41,6 +41,7 @@ $(document).ready(function () {
     });
 
     $("#new").on('click', function () {
+        rows = [];
         $('#grid').find('.row').each(function () {
             let cells = [];
             $(this).find('.cell').each(function () {
@@ -51,33 +52,54 @@ $(document).ready(function () {
             rows.push(cells);
         })
 
-        $('#home-menu').click();
         $('#grid .cell:first').click();
+        $('#home-menu').click();
     })
     $("#open").on('click', async function () {
+
         let dobj = await dialog.showOpenDialog();
-        if (dobj.canceled) {
-            return;
-        }
-        else if (dobj.filePaths.length === 0) {
-            alert("Please select a file");
-            return;
-        }
-        else {
-            let data = await fsp.readFile(dobj.filePaths[0]);
-            let rows = JSON.parse(data);
-            let i = 0;
-            $('#grid').find('.row').each(function () {
-                let j = 0;
-                $(this).find('.cell').each(function () {
-                    $(this).html(rows[i][j]);
-                    j++;
-                })
-                i++;
+        let data = await fs.readFile(dobj.filePaths[0])
+        rows = JSON.parse(data);
+
+        let i = 0;
+        $('#grid').find('.row').each(function () {
+            let j = 0;
+            $(this).find('.cell').each(function () {
+                let cell = rows[i][j];
+                prepareCellDiv(this, cell);
+                j++;
             })
-        }
+            i++;
+        })
+        $('#grid .cell:first').click();
+        $('#home-menu').click();
 
     })
+
+    // $("#open").on('click', async function () {
+    //     let dobj = await dialog.showOpenDialog();
+    //     if (dobj.canceled) {
+    //         return;
+    //     }
+    //     else if (dobj.filePaths.length === 0) {
+    //         alert("Please select a file");
+    //         return;
+    //     }
+    //     else {
+    //         let data = await fsp.readFile(dobj.filePaths[0]);
+    //         let rows = JSON.parse(data);
+    //         let i = 0;
+    //         $('#grid').find('.row').each(function () {
+    //             let j = 0;
+    //             $(this).find('.cell').each(function () {
+    //                 $(this).html(rows[i][j]);
+    //                 j++;
+    //             })
+    //             i++;
+    //         })
+    //     }
+
+    // })
     $("#save").on('click', async function () {
 
         // $('#grid').find('.row').each(function () {
@@ -211,7 +233,23 @@ $(document).ready(function () {
         $('#font-family').val(cobj.fontFamily);
         $('#font-size').val(cobj.fontSize);
         if (cobj.bold) {
-            
+            $('#bold').addClass('selected');
+        }
+        else {
+            $('#bold').removeClass('selected');
+        }
+
+        if (cobj.italic) {
+            $('#italic').addClass('selected');
+        }
+        else {
+            $('#italic').removeClass('selected');
+        }
+        if (cobj.underline) {
+            $('#underline').addClass('selected');
+        }
+        else {
+            $('#underline').removeClass('selected');
         }
     })
     $('#grid .cell').on('keypress', function (e) {
