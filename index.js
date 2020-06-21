@@ -256,7 +256,35 @@ $(document).ready(function () {
         let rid = parseInt($(this).attr('rid'));
         let cid = parseInt($(this).attr('cid'));
         let cobj = rows[rid][cid];
+        // cobj.val = $(this).html();
+
+        if (cobj.formula) {
+            $('#txt-formula').val('');
+            cobj.formula = '';
+
+            //delete formula and update upstream
+            for (let i = 0; i < cobj.upstream.length; i++){
+                let uso = cobj.upstream[i];
+                let fuso = rows[uso.rid][uso.cid];
+                for (let j = 0; j < fuso.downstream.length; j++){
+                    let dso = fuso.downstream[j];
+                    if (dso.rid == rid && dso.cid == cid) {
+                        fuso.downstream.splice(j, 1);
+                        break;
+                    }
+                }
+
+            }
+            cobj.upstream = [];
+        }
         cobj.val = $(this).html();
+        for (let i = 0; i < cobj.downstream.length; i++){
+            let dso = cobj.downstream[i];
+            updateVal(rid, cid, cobj.val, dso.rid, dso.cid);
+        }
+    })
+    $('txtFormula').on('blur', function () {
+        
     })
 
     $('#new').click();
